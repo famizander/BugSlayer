@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-page: #050e1d;
+    --text-primary: #ffffff;
+  }
+
+  html.dark {
+    --bg-page: #050e1d;
+    --text-primary: #ffffff;
+  }
+
+  html:not(.dark) {
+    --bg-page: #f1f5f9;
+    --text-primary: #0f172a;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* Ambient Glassmorphic Background mesh */
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(29, 78, 216, 0.18) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 45%),
+      radial-gradient(at 50% 100%, rgba(30, 58, 138, 0.2) 0px, transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(10, 28, 56, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+
+.glass-card {
+  background: rgba(8, 22, 45, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.glass-input {
+  background: rgba(3, 11, 24, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Light mode overrides for glassmorphism */
+html:not(.dark) body {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.8) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(191, 219, 254, 0.6) 0px, transparent 45%),
+    radial-gradient(at 50% 100%, rgba(224, 231, 255, 0.7) 0px, transparent 60%);
+}
+
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #0f172a !important;
+  border-color: rgba(203, 213, 225, 0.9) !important;
+  box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.08) !important;
+}
+
+html:not(.dark) .glass-card {
+  background: rgba(248, 250, 252, 0.9) !important;
+  color: #0f172a !important;
+  border-color: rgba(226, 232, 240, 0.9) !important;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .glass-input {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+  border-color: rgba(203, 213, 225, 0.9) !important;
+}
+
+html:not(.dark) .glass-button {
+  background: rgba(241, 245, 249, 0.95) !important;
+  color: #0f172a !important;
+  border-color: rgba(203, 213, 225, 0.9) !important;
+}
+
+/* Light mode typography: force all white-grey text to crisp dark grey */
+html:not(.dark) p,
+html:not(.dark) label {
+  color: #334155;
+}
+
+html:not(.dark) .glass-panel,
+html:not(.dark) .glass-card,
+html:not(.dark) .glass-input {
+  color: #1e293b !important;
+}
+
+/* Transform white-grey text classes into dark grey (#334155) in light mode */
+html:not(.dark) .glass-panel :is(.text-white, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400, .text-gray-100, .text-gray-200, .text-gray-300, .text-gray-400):not(.code-dark-bg *):not(button.bg-gradient-to-r *):not(button.bg-blue-600 *):not(button.bg-indigo-600 *):not(button.bg-rose-600 *):not(button.bg-amber-600 *):not(.code-dark-bg):not(footer *),
+html:not(.dark) .glass-card :is(.text-white, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400, .text-gray-100, .text-gray-200, .text-gray-300, .text-gray-400):not(.code-dark-bg *):not(button.bg-gradient-to-r *):not(button.bg-blue-600 *):not(button.bg-indigo-600 *):not(button.bg-rose-600 *):not(button.bg-amber-600 *):not(.code-dark-bg):not(footer *),
+html:not(.dark) .glass-input :is(.text-white, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400, .text-gray-100, .text-gray-200, .text-gray-300, .text-gray-400):not(.code-dark-bg *):not(footer *) {
+  color: #334155 !important;
+}
+
+/* Ensure headings in light mode are dark slate / black */
+html:not(.dark) .glass-panel :is(h1, h2, h3, h4, h5, h6):not(.code-dark-bg *):not(footer *):not(button.bg-gradient-to-r *):not(button.bg-blue-600 *),
+html:not(.dark) .glass-card :is(h1, h2, h3, h4, h5, h6):not(.code-dark-bg *):not(footer *):not(button.bg-gradient-to-r *):not(button.bg-blue-600 *) {
+  color: #0f172a !important;
+}
+
+/* Also for muted text in general main container */
+html:not(.dark) main :is(.text-slate-300, .text-slate-400, .text-slate-200):not(.code-dark-bg *):not(footer *):not(button.bg-gradient-to-r *):not(button.bg-blue-600 *) {
+  color: #334155 !important;
+}
+
+/* Coding box: MUST ALWAYS be dark background with crisp WHITE text */
+.code-dark-bg {
+  background-color: #030814 !important;
+  color: #ffffff !important;
+}
+
+.code-dark-bg textarea,
+.code-dark-bg div,
+.code-dark-bg span,
+.code-dark-bg pre,
+.code-dark-bg code,
+.code-dark-bg table,
+.code-dark-bg tr,
+.code-dark-bg td {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.code-dark-bg .line-number {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+}
+
+.code-dark-bg textarea::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
+
+/* Footer: MUST ALWAYS BE CRISP WHITE text as requested */
+footer {
+  background-color: #020817 !important;
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+footer,
+footer *,
+footer button,
+footer span,
+footer p {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+footer button:hover {
+  color: #93c5fd !important;
+  -webkit-text-fill-color: #93c5fd !important;
+}
+
+/* Header brand stays dark / contrast in light mode */
+html:not(.dark) header {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+html:not(.dark) header span.text-white,
+html:not(.dark) header button:not(.btn-primary) {
+  color: #0f172a !important;
+}
+
+html:not(.dark) header span.text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+/* Interactive Socratic Debugger Badge in light mode */
+html:not(.dark) .socratic-badge {
+  color: #020617 !important;
+  background-color: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  font-weight: 700 !important;
+}
+
+/* Recent Page "n of n items" Badge in light mode */
+html:not(.dark) .recent-items-badge {
+  color: #020617 !important;
+  background-color: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  font-weight: 700 !important;
+}
+
+/* Reveal corrected code button in light mode */
+html:not(.dark) .reveal-code-btn {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* Ladybug logo container: ALWAYS KEEP DARK NAVY BACKGROUND in both light and dark mode */
+.logo-dark-bg {
+  background-color: #071933 !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Explicit text-black support in light mode */
+html:not(.dark) .text-black {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Light mode: Student Free box contents must be black as requested */
+html:not(.dark) .student-plan-box,
+html:not(.dark) .student-plan-box h3,
+html:not(.dark) .student-plan-box span,
+html:not(.dark) .student-plan-box p,
+html:not(.dark) .student-plan-box .glass-input {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+/* Light mode: RM 9.99 pricing and premium features text must be black as requested */
+html:not(.dark) .premium-price-text,
+html:not(.dark) .premium-price-text span,
+html:not(.dark) .premium-plan-features,
+html:not(.dark) .premium-plan-features span {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
