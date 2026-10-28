@@ -1,6 +1,6 @@
 # BugSlayer
 
-BugSlayer is an AI-powered debugging tutor that helps students learn how to fix code instead of just copying the answer. It analyzes submissions, identifies bugs, explains what went wrong, and delivers guided hints that encourage problem-solving and deeper understanding.
+BugSlayer is an AI-powered debugging tutor that helps students learn how to fix code instead of just copying the answer. It analyzes submissions, identifies bugs, explains what went wrong, and delivers targeted feedback to help students build real debugging skills.
 
 ## Why students use it
 
@@ -49,6 +49,10 @@ APP_URL="http://localhost:3000"
 ## Project goals
 
 BugSlayer makes programming education more interactive, supportive, and effective by turning debugging into a learning experience rather than a dead end.
+
+## Website
+
+https://bugslayer.ai.studio/
 
 ## Repository
 
